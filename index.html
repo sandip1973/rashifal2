@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>आज का राशिफल | AajKaRashifal.online</title>
+<meta name="description" content="जानिए आज का राशिफल - सभी 12 राशियों का दैनिक भविष्यफल। करियर, प्रेम, स्वास्थ्य और धन राशिफल हिंदी में।">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --saffron:#E8690A;
+  --saffron-hover:#C85500;
+  --saffron-light:#FFF3E8;
+  --gold:#C9920A;
+  --gold-light:#FFFBEA;
+  --deep:#110500;
+  --deep2:#1E0A00;
+  --deep3:#2D1200;
+  --text:#1A0800;
+  --muted:#6B4226;
+  --muted2:#9B6B46;
+  --bg:#FFFDF8;
+  --surface:#FFF8EE;
+  --card:#FFFFFF;
+  --border:#EDD9B0;
+  --border2:#F5E8CC;
+  --radius:14px;
+  --shadow:0 2px 16px rgba(232,105,10,0.08);
+}
+
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
+
+/* ── HEADER ── */
+header{
+  background:linear-gradient(135deg,var(--deep) 0%,var(--deep3) 60%,var(--deep) 100%);
+  border-bottom:2px solid var(--gold);
+  position:sticky;top:0;z-index:200;
+}
+.header-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 1.5rem;height:62px;
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{font-size:26px;line-height:1}
+.logo-text-wrap{display:flex;flex-direction:column;gap:1px}
+.logo-hi{font-family:'Tiro Devanagari Hindi',serif;font-size:1.2rem;color:#FFD700;font-weight:700;line-height:1.1}
+.logo-en{font-size:.62rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase}
+.header-date{
+  background:rgba(201,146,10,0.18);border:1px solid rgba(201,146,10,0.4);
+  color:#FFD700;font-size:.72rem;padding:4px 12px;border-radius:20px;white-space:nowrap;
+}
+nav{display:flex;gap:1.25rem}
+nav a{color:#C9920A;font-size:.82rem;text-decoration:none;font-weight:500;transition:color .2s}
+nav a:hover{color:#FFD700}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,var(--deep) 0%,#250A00 50%,var(--deep) 100%);
+  padding:3.5rem 1.5rem 5rem;text-align:center;position:relative;overflow:hidden;
+}
+.hero-stars{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(circle 1.5px at 8% 20%,rgba(255,215,0,.7) 0%,transparent 60%),
+    radial-gradient(circle 1px at 85% 12%,rgba(255,165,0,.6) 0%,transparent 60%),
+    radial-gradient(circle 2px at 25% 65%,rgba(255,215,0,.5) 0%,transparent 60%),
+    radial-gradient(circle 1px at 75% 55%,rgba(255,140,0,.5) 0%,transparent 60%),
+    radial-gradient(circle 1.5px at 55% 30%,rgba(255,215,0,.6) 0%,transparent 60%),
+    radial-gradient(circle 1px at 15% 80%,rgba(255,165,0,.4) 0%,transparent 60%),
+    radial-gradient(circle 1px at 92% 70%,rgba(255,215,0,.5) 0%,transparent 60%),
+    radial-gradient(circle 1.5px at 45% 88%,rgba(255,140,0,.4) 0%,transparent 60%),
+    radial-gradient(circle 1px at 62% 75%,rgba(255,215,0,.3) 0%,transparent 60%),
+    radial-gradient(circle 1px at 38% 15%,rgba(255,165,0,.5) 0%,transparent 60%);
+}
+.hero-glow{
+  position:absolute;top:-60px;left:50%;transform:translateX(-50%);
+  width:500px;height:300px;
+  background:radial-gradient(ellipse,rgba(232,105,10,.18) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-icon{font-size:3.8rem;display:block;margin:0 auto .75rem;animation:float 3.5s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero h1{
+  font-family:'Tiro Devanagari Hindi',serif;
+  font-size:clamp(2rem,5vw,3.2rem);color:#FFD700;
+  line-height:1.15;margin-bottom:.4rem;
+  text-shadow:0 2px 24px rgba(232,105,10,.5);
+}
+.hero-sub{color:#D4A96A;font-size:.95rem;letter-spacing:.5px;margin-bottom:.25rem}
+.hero-date-strip{
+  display:inline-block;margin-top:1rem;
+  background:rgba(201,146,10,.15);border:1px solid rgba(201,146,10,.35);
+  border-radius:30px;padding:6px 20px;font-size:.8rem;color:#FFD700;
+}
+
+/* ── MAIN WRAP ── */
+.main-wrap{max-width:900px;margin:-2.5rem auto 0;padding:0 1rem 4rem;position:relative;z-index:10}
+
+/* ── TABS ── */
+.tabs{
+  display:flex;background:var(--deep2);
+  border-radius:12px;padding:4px;margin-bottom:1.5rem;
+  border:1px solid #3D1800;box-shadow:var(--shadow);
+}
+.tab{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:6px;
+  padding:.65rem .75rem;border:none;background:transparent;
+  font-family:'Poppins',sans-serif;font-size:.88rem;font-weight:500;
+  color:#C9920A;border-radius:9px;cursor:pointer;transition:all .25s;
+}
+.tab.active{background:linear-gradient(135deg,var(--saffron),var(--gold));color:#fff;font-weight:600}
+.tab:not(.active):hover{background:rgba(232,105,10,.12);color:#FFD700}
+
+/* ── PANELS ── */
+.panel{display:none;animation:slideUp .3s ease}
+.panel.on{display:block}
+@keyframes slideUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── RASHI GRID ── */
+.rashi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:.65rem;margin-bottom:1.25rem}
+.rashi-tile{
+  background:var(--card);border:2px solid var(--border2);
+  border-radius:12px;padding:.8rem .4rem .7rem;
+  text-align:center;cursor:pointer;transition:all .2s;
+}
+.rashi-tile:hover{border-color:var(--saffron);background:var(--saffron-light);transform:translateY(-2px);box-shadow:0 4px 14px rgba(232,105,10,.15)}
+.rashi-tile.picked{border-color:var(--saffron);background:linear-gradient(135deg,#FFF3E8,#FFFBEA);box-shadow:0 0 0 3px rgba(232,105,10,.18)}
+.r-sym{font-size:1.9rem;display:block;margin-bottom:3px}
+.r-hi{font-family:'Tiro Devanagari Hindi',serif;font-size:.9rem;color:var(--text);font-weight:600;display:block}
+.r-en{font-size:.67rem;color:var(--muted2);display:block}
+
+/* ── DOB PANEL ── */
+.dob-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2.25rem 2rem;text-align:center;box-shadow:var(--shadow)}
+.dob-box h3{font-family:'Tiro Devanagari Hindi',serif;font-size:1.45rem;color:var(--text);margin-bottom:.4rem}
+.dob-box p{color:var(--muted);font-size:.85rem;margin-bottom:1.5rem}
+.dob-row{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.25rem}
+input[type=date]{
+  border:1.5px solid var(--border);border-radius:10px;
+  padding:.65rem 1.1rem;font-family:'Poppins',sans-serif;font-size:.95rem;
+  color:var(--text);background:var(--bg);outline:none;transition:border .2s;cursor:pointer;
+}
+input[type=date]:focus{border-color:var(--saffron)}
+.dob-result{
+  display:none;background:linear-gradient(135deg,#FFF3E8,#FFFBEA);
+  border:2px solid var(--saffron);border-radius:12px;padding:1.5rem;margin-top:1rem;
+  animation:slideUp .3s ease;
+}
+.dob-result.on{display:block}
+.dob-sym{font-size:3.2rem;display:block;margin-bottom:.3rem}
+.dob-name{font-family:'Tiro Devanagari Hindi',serif;font-size:1.7rem;color:var(--saffron-hover);font-weight:700}
+.dob-dates{font-size:.8rem;color:var(--muted);margin-top:.25rem}
+
+/* ── BUTTONS ── */
+.btn{
+  background:linear-gradient(135deg,var(--saffron),var(--gold));
+  color:#fff;border:none;border-radius:10px;
+  padding:.75rem 2rem;font-family:'Poppins',sans-serif;
+  font-size:.95rem;font-weight:600;cursor:pointer;
+  transition:all .22s;box-shadow:0 4px 18px rgba(232,105,10,.3);
+  display:inline-flex;align-items:center;gap:6px;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(232,105,10,.4)}
+.btn:active{transform:scale(.98)}
+.btn:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-sm{padding:.6rem 1.4rem;font-size:.85rem}
+
+/* ── LOADER ── */
+.loader-wrap{display:none;text-align:center;padding:3rem 1rem}
+.loader-wrap.on{display:block}
+.spinner{
+  display:inline-block;width:46px;height:46px;
+  border:3px solid var(--border);border-top-color:var(--saffron);
+  border-radius:50%;animation:spin .75s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loader-text{font-family:'Tiro Devanagari Hindi',serif;color:var(--muted);font-size:.9rem;margin-top:.85rem}
+
+/* ── ERROR ── */
+.err-box{display:none;background:#FFF0EE;border:1px solid #F5C1B0;border-radius:10px;padding:1rem 1.25rem;margin-top:1rem;text-align:center}
+.err-box.on{display:block}
+.err-box p{color:#8B2200;font-size:.88rem}
+
+/* ── RESULT ── */
+.result-wrap{display:none}
+.result-wrap.on{display:block;animation:slideUp .4s ease}
+
+.result-header{
+  background:linear-gradient(135deg,var(--deep),var(--deep2));
+  border-radius:14px;padding:1.75rem 1.5rem;margin-bottom:1rem;
+  text-align:center;border:1px solid #3D1800;
+}
+.res-sym{font-size:3.8rem;display:block;margin-bottom:.4rem}
+.res-name{font-family:'Tiro Devanagari Hindi',serif;font-size:2rem;color:#FFD700;font-weight:700}
+.res-date{color:#C9920A;font-size:.78rem;margin-top:.25rem}
+.score-row{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-top:1rem}
+.sc-pill{
+  background:rgba(232,105,10,.14);border:1px solid rgba(232,105,10,.3);
+  border-radius:20px;padding:4px 14px;font-size:.76rem;color:#D4A96A;
+}
+.sc-pill strong{color:#FFD700}
+
+/* ── CONTENT CARDS ── */
+.card{
+  background:var(--card);border:1px solid var(--border2);
+  border-radius:14px;padding:1.4rem;margin-bottom:.9rem;
+  box-shadow:var(--shadow);
+}
+.card h4{
+  font-family:'Tiro Devanagari Hindi',serif;font-size:1rem;
+  color:var(--saffron-hover);margin-bottom:.65rem;
+  display:flex;align-items:center;gap:7px;
+  border-bottom:1px solid var(--border2);padding-bottom:.5rem;
+}
+.card p{font-size:.88rem;line-height:1.85;color:var(--text)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+
+.lucky-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.6rem}
+.ltag{
+  background:var(--gold-light);border:1px solid var(--border);
+  border-radius:8px;padding:4px 12px;font-size:.8rem;color:var(--text);font-weight:500;
+}
+
+.upay-card{background:#FFFBEA;border:1px solid #EDD9B0;border-left:4px solid var(--gold)}
+
+/* ── ALL SIGNS FOOTER ── */
+.signs-section{background:var(--surface);border-top:1px solid var(--border2);padding:3rem 1.5rem}
+.signs-inner{max-width:900px;margin:0 auto}
+.sec-title{font-family:'Tiro Devanagari Hindi',serif;font-size:1.6rem;color:var(--text);text-align:center;margin-bottom:1.5rem}
+.all-signs{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:.7rem}
+.sign-row{
+  background:var(--card);border:1px solid var(--border2);border-radius:10px;
+  padding:.7rem .9rem;display:flex;align-items:center;gap:10px;cursor:pointer;transition:all .2s;
+}
+.sign-row:hover{border-color:var(--saffron);background:var(--saffron-light);transform:translateY(-1px)}
+.sign-row .s-sym{font-size:1.5rem}
+.sign-row .s-info h5{font-family:'Tiro Devanagari Hindi',serif;font-size:.88rem;color:var(--text);font-weight:600;line-height:1.2}
+.sign-row .s-info small{font-size:.68rem;color:var(--muted2)}
+
+/* ── DISCLAIMER ── */
+.disclaimer{
+  background:var(--gold-light);border-left:3px solid var(--gold);
+  border-radius:0 8px 8px 0;padding:.75rem 1rem;
+  font-size:.78rem;color:var(--muted);margin:1rem 0;line-height:1.6;
+}
+
+/* ── FOOTER ── */
+footer{background:var(--deep);padding:1.5rem;text-align:center;border-top:1px solid #2D1200}
+footer p{color:#5A3010;font-size:.78rem}
+footer a{color:var(--gold);text-decoration:none}
+footer a:hover{color:#FFD700}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .g2{grid-template-columns:1fr}
+  .rashi-grid{grid-template-columns:repeat(3,1fr)}
+  nav{display:none}
+  .hero{padding:2.5rem 1rem 4rem}
+}
+@media(max-width:380px){
+  .rashi-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">
+      <span class="logo-mark">🔯</span>
+      <div class="logo-text-wrap">
+        <span class="logo-hi">आज का राशिफल</span>
+        <span class="logo-en">aajkarashifal.online</span>
+      </div>
+    </a>
+    <nav>
+      <a href="#">राशिफल</a>
+      <a href="#">पंचांग</a>
+      <a href="#">कुंडली</a>
+      <a href="#">वास्तु</a>
+    </nav>
+    <div class="header-date" id="hdrDate"></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-stars"></div>
+  <div class="hero-glow"></div>
+  <span class="hero-icon">🌙</span>
+  <h1>आज का राशिफल</h1>
+  <p class="hero-sub">वैदिक ज्योतिष पर आधारित दैनिक भविष्यफल</p>
+  <span class="hero-date-strip" id="heroDate"></span>
+</section>
+
+<!-- MAIN -->
+<div class="main-wrap">
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab active" id="t1" onclick="showTab(1)">🔭 राशि चुनें</button>
+    <button class="tab" id="t2" onclick="showTab(2)">🎂 जन्म तिथि से जानें</button>
+  </div>
+
+  <!-- PANEL 1 – SELECT RASHI -->
+  <div class="panel on" id="p1">
+    <div class="rashi-grid" id="rashiGrid"></div>
+    <div style="text-align:center;margin-bottom:1.25rem">
+      <button class="btn" id="mainBtn" onclick="doFetchRashifal()">✨ राशिफल देखें</button>
+    </div>
+    <div class="loader-wrap" id="ld1"><div class="spinner"></div><p class="loader-text">ग्रह-नक्षत्रों से जानकारी प्राप्त हो रही है…</p></div>
+    <div class="err-box" id="er1"><p id="er1msg"></p></div>
+    <div class="result-wrap" id="res1"></div>
+  </div>
+
+  <!-- PANEL 2 – DOB -->
+  <div class="panel" id="p2">
+    <div class="dob-box">
+      <h3>🎂 जन्म तिथि से राशि जानें</h3>
+      <p>अपनी जन्म तिथि दर्ज करें — हम तुरंत आपकी राशि बताएंगे</p>
+      <div class="dob-row">
+        <input type="date" id="dobIn" min="1920-01-01" max="2010-12-31">
+      </div>
+      <button class="btn" onclick="calcDOB()">🔍 राशि जानें</button>
+      <div class="dob-result" id="dobRes">
+        <span class="dob-sym" id="dobSym"></span>
+        <div class="dob-name" id="dobName"></div>
+        <div class="dob-dates" id="dobDates"></div>
+        <div style="margin-top:1.1rem">
+          <button class="btn btn-sm" onclick="doFetchFromDOB()">✨ आज का राशिफल देखें</button>
+        </div>
+      </div>
+    </div>
+    <div class="loader-wrap" id="ld2" style="margin-top:1rem"><div class="spinner"></div><p class="loader-text">राशिफल तैयार किया जा रहा है…</p></div>
+    <div class="err-box" id="er2" style="margin-top:1rem"><p id="er2msg"></p></div>
+    <div class="result-wrap" id="res2" style="margin-top:1rem"></div>
+  </div>
+
+  <div class="disclaimer">
+    ⚠️ यह राशिफल केवल मनोरंजन एवं सामान्य मार्गदर्शन के लिए है। किसी भी महत्वपूर्ण निर्णय के लिए योग्य ज्योतिषी से परामर्श अवश्य लें।
+  </div>
+</div>
+
+<!-- ALL SIGNS -->
+<section class="signs-section">
+  <div class="signs-inner">
+    <h2 class="sec-title">सभी 12 राशियाँ</h2>
+    <div class="all-signs" id="allSigns"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <a href="https://aajkarashifal.online">aajkarashifal.online</a> &nbsp;|&nbsp; वैदिक ज्योतिष पर आधारित &nbsp;|&nbsp; केवल मनोरंजन हेतु</p>
+</footer>
+
+<script>
+/* ─── DATA ─── */
+const RASHIS = [
+  {hi:'मेष',    en:'Aries',       sym:'♈', dates:'21 मार्च – 19 अप्रैल',  lord:'मंगल', elem:'अग्नि'},
+  {hi:'वृषभ',   en:'Taurus',      sym:'♉', dates:'20 अप्रैल – 20 मई',    lord:'शुक्र', elem:'पृथ्वी'},
+  {hi:'मिथुन',  en:'Gemini',      sym:'♊', dates:'21 मई – 20 जून',       lord:'बुध',   elem:'वायु'},
+  {hi:'कर्क',   en:'Cancer',      sym:'♋', dates:'21 जून – 22 जुलाई',    lord:'चंद्र', elem:'जल'},
+  {hi:'सिंह',   en:'Leo',         sym:'♌', dates:'23 जुलाई – 22 अगस्त',  lord:'सूर्य', elem:'अग्नि'},
+  {hi:'कन्या',  en:'Virgo',       sym:'♍', dates:'23 अगस्त – 22 सितंबर', lord:'बुध',   elem:'पृथ्वी'},
+  {hi:'तुला',   en:'Libra',       sym:'♎', dates:'23 सितंबर – 22 अक्टूबर',lord:'शुक्र',elem:'वायु'},
+  {hi:'वृश्चिक',en:'Scorpio',     sym:'♏', dates:'23 अक्टूबर – 21 नवंबर', lord:'मंगल', elem:'जल'},
+  {hi:'धनु',    en:'Sagittarius', sym:'♐', dates:'22 नवंबर – 21 दिसंबर',  lord:'गुरु',  elem:'अग्नि'},
+  {hi:'मकर',    en:'Capricorn',   sym:'♑', dates:'22 दिसंबर – 19 जनवरी',  lord:'शनि',   elem:'पृथ्वी'},
+  {hi:'कुम्भ',  en:'Aquarius',    sym:'♒', dates:'20 जनवरी – 18 फरवरी',   lord:'शनि',   elem:'वायु'},
+  {hi:'मीन',    en:'Pisces',      sym:'♓', dates:'19 फरवरी – 20 मार्च',   lord:'गुरु',  elem:'जल'},
+];
+
+/* ─── STATE ─── */
+let picked = null;
+let dobRashi = null;
+
+/* ─── DATE ─── */
+const TODAY = new Date();
+const hiDate = TODAY.toLocaleDateString('hi-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+const shortDate = TODAY.toLocaleDateString('hi-IN',{day:'numeric',month:'long',year:'numeric'});
+document.getElementById('hdrDate').textContent = shortDate;
+document.getElementById('heroDate').textContent = '📅 ' + hiDate;
+
+/* ─── BUILD RASHI GRID ─── */
+const grid = document.getElementById('rashiGrid');
+RASHIS.forEach((r,i) => {
+  const el = document.createElement('div');
+  el.className = 'rashi-tile';
+  el.setAttribute('role','button');
+  el.setAttribute('aria-label', r.hi);
+  el.innerHTML = `<span class="r-sym">${r.sym}</span><span class="r-hi">${r.hi}</span><span class="r-en">${r.en}</span>`;
+  el.onclick = () => {
+    document.querySelectorAll('.rashi-tile').forEach(t => t.classList.remove('picked'));
+    el.classList.add('picked');
+    picked = r;
+    hideResult('res1'); hideErr('er1');
+  };
+  grid.appendChild(el);
+});
+
+/* ─── BUILD ALL SIGNS ─── */
+const allSigns = document.getElementById('allSigns');
+RASHIS.forEach(r => {
+  allSigns.innerHTML += `
+    <div class="sign-row">
+      <span class="s-sym">${r.sym}</span>
+      <div class="s-info">
+        <h5>${r.hi} (${r.en})</h5>
+        <small>${r.dates}</small>
+      </div>
+    </div>`;
+});
+
+/* ─── TABS ─── */
+function showTab(n) {
+  [1,2].forEach(i => {
+    document.getElementById('t'+i).classList.toggle('active', i===n);
+    document.getElementById('p'+i).classList.toggle('on', i===n);
+  });
+}
+
+/* ─── HELPERS ─── */
+function showLoader(n,v){ document.getElementById('ld'+n).className='loader-wrap'+(v?' on':'') }
+function showErr(n,m){ const e=document.getElementById('er'+n); document.getElementById('er'+n+'msg').textContent=m; e.className='err-box on' }
+function hideErr(n){ document.getElementById('er'+n).className='err-box' }
+function showResult(id){ document.getElementById(id).classList.add('on') }
+function hideResult(id){ const el=document.getElementById(id); el.classList.remove('on'); el.innerHTML='' }
+
+/* ─── DOB → RASHI ─── */
+function getRashiIdx(m,d){
+  if((m===3&&d>=21)||(m===4&&d<=19))return 0;
+  if((m===4&&d>=20)||(m===5&&d<=20))return 1;
+  if((m===5&&d>=21)||(m===6&&d<=20))return 2;
+  if((m===6&&d>=21)||(m===7&&d<=22))return 3;
+  if((m===7&&d>=23)||(m===8&&d<=22))return 4;
+  if((m===8&&d>=23)||(m===9&&d<=22))return 5;
+  if((m===9&&d>=23)||(m===10&&d<=22))return 6;
+  if((m===10&&d>=23)||(m===11&&d<=21))return 7;
+  if((m===11&&d>=22)||(m===12&&d<=21))return 8;
+  if((m===12&&d>=22)||(m===1&&d<=19))return 9;
+  if((m===1&&d>=20)||(m===2&&d<=18))return 10;
+  return 11;
+}
+
+function calcDOB(){
+  const v = document.getElementById('dobIn').value;
+  if(!v){ alert('कृपया जन्म तिथि दर्ज करें।'); return; }
+  const d = new Date(v);
+  dobRashi = RASHIS[getRashiIdx(d.getMonth()+1, d.getDate())];
+  document.getElementById('dobSym').textContent  = dobRashi.sym;
+  document.getElementById('dobName').textContent = dobRashi.hi + ' (' + dobRashi.en + ')';
+  document.getElementById('dobDates').textContent= dobRashi.dates + ' | राशि स्वामी: ' + dobRashi.lord + ' | तत्व: ' + dobRashi.elem;
+  document.getElementById('dobRes').className = 'dob-result on';
+  hideResult('res2'); hideErr('er2');
+}
+
+/* ─── FETCH RASHIFAL ─── */
+async function doFetchRashifal(){
+  if(!picked){ alert('कृपया पहले अपनी राशि चुनें।'); return; }
+  await fetchRashifal(picked, 1, 'res1');
+}
+async function doFetchFromDOB(){
+  if(!dobRashi) return;
+  await fetchRashifal(dobRashi, 2, 'res2');
+}
+
+async function fetchRashifal(rashi, ldN, resId){
+  const btn = document.getElementById('mainBtn');
+  if(btn) btn.disabled = true;
+  hideErr(ldN); hideResult(resId);
+  showLoader(ldN, true);
+
+  const prompt = `आज ${hiDate} के लिए ${rashi.hi} (${rashi.en}) राशि का विस्तृत दैनिक राशिफल हिंदी में लिखें।
+
+केवल नीचे दिए गए JSON फ़ॉर्मेट में उत्तर दें। कोई अन्य टेक्स्ट, प्रस्तावना या मार्कडाउन न लिखें:
+{
+  "overall": "आज का सामान्य भाग्यफल (4-5 वाक्य, विस्तृत)",
+  "career": "करियर और व्यापार राशिफल (3 वाक्य)",
+  "love": "प्रेम और विवाह राशिफल (3 वाक्य)",
+  "health": "स्वास्थ्य राशिफल (3 वाक्य)",
+  "finance": "धन और आर्थिक स्थिति (3 वाक्य)",
+  "family": "परिवार और संबंध (2-3 वाक्य)",
+  "luckyColor": "शुभ रंग का नाम",
+  "luckyNumber": "शुभ अंक (1-2 अंक)",
+  "luckyTime": "शुभ समय (जैसे सुबह 7-9 बजे)",
+  "luckyGem": "भाग्यशाली रत्न",
+  "remedy": "आज का विशेष उपाय (2 वाक्य)",
+  "score": {
+    "overall": 7,
+    "love": 8,
+    "career": 6,
+    "health": 7
+  }
+}`;
+
+  try {
+    const res = await fetch('/api/rashifal', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ prompt })
+    });
+    const data = await res.json();
+    if(!res.ok || data.error) throw new Error(data.error || 'API error');
+    const clean = (data.text || '').replace(/```json|```/g,'').trim();
+    const rf = JSON.parse(clean);
+    showLoader(ldN, false);
+    renderResult(rashi, rf, resId);
+  } catch(e) {
+    showLoader(ldN, false);
+    showErr(ldN, 'राशिफल लाने में त्रुटि हुई। कृपया कुछ देर बाद पुनः प्रयास करें।');
+    console.error(e);
+  }
+  if(btn) btn.disabled = false;
+}
+
+/* ─── RENDER RESULT ─── */
+function renderResult(rashi, rf, resId){
+  const el = document.getElementById(resId);
+  el.innerHTML = `
+    <div class="result-header">
+      <span class="res-sym">${rashi.sym}</span>
+      <div class="res-name">${rashi.hi} राशिफल</div>
+      <div class="res-date">${hiDate}</div>
+      <div class="score-row">
+        <span class="sc-pill">🌟 सामान्य: <strong>${rf.score?.overall ?? '—'}/10</strong></span>
+        <span class="sc-pill">❤️ प्रेम: <strong>${rf.score?.love ?? '—'}/10</strong></span>
+        <span class="sc-pill">💼 करियर: <strong>${rf.score?.career ?? '—'}/10</strong></span>
+        <span class="sc-pill">🏥 स्वास्थ्य: <strong>${rf.score?.health ?? '—'}/10</strong></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4>🌅 आज का भाग्यफल</h4>
+      <p>${rf.overall}</p>
+    </div>
+
+    <div class="g2">
+      <div class="card">
+        <h4>💼 करियर</h4>
+        <p>${rf.career}</p>
+      </div>
+      <div class="card">
+        <h4>❤️ प्रेम जीवन</h4>
+        <p>${rf.love}</p>
+      </div>
+      <div class="card">
+        <h4>🏥 स्वास्थ्य</h4>
+        <p>${rf.health}</p>
+      </div>
+      <div class="card">
+        <h4>💰 धन-संपत्ति</h4>
+        <p>${rf.finance}</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4>👨‍👩‍👧 परिवार एवं संबंध</h4>
+      <p>${rf.family}</p>
+    </div>
+
+    <div class="card">
+      <h4>🍀 आज के शुभ संकेत</h4>
+      <div class="lucky-tags">
+        <span class="ltag">🎨 शुभ रंग: ${rf.luckyColor}</span>
+        <span class="ltag">🔢 शुभ अंक: ${rf.luckyNumber}</span>
+        <span class="ltag">⏰ शुभ समय: ${rf.luckyTime}</span>
+        <span class="ltag">💎 रत्न: ${rf.luckyGem}</span>
+      </div>
+    </div>
+
+    <div class="card upay-card">
+      <h4>🙏 आज का विशेष उपाय</h4>
+      <p>${rf.remedy}</p>
+    </div>
+  `;
+  el.className = 'result-wrap on';
+  el.scrollIntoView({behavior:'smooth', block:'start'});
+}
+</script>
+</body>
+</html>
