@@ -1,35 +1,25 @@
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
-  
   try {
     const { prompt } = req.body;
-    
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`;
-    
-    const response = await fetch(url, {
+    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.GROQ_API_KEY}`
+      },
       body: JSON.stringify({
-        contents: [{ 
-          parts: [{ text: prompt }] 
-        }]
+        model: 'llama-3.3-70b-versatile',
+        messages: [{ role: 'user', content: prompt }],
+        max_tokens: 1000,
+        temperature: 0.8
       })
     });
-
-    const raw = await response.text();
-    console.log('Gemini status:', response.status);
-    console.log('Gemini response:', raw);
-
-    if (!response.ok) {
-      return res.status(500).json({ error: 'Gemini error: ' + raw });
-    }
-
-    const data = JSON.parse(raw);
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    const data = await response.json();
+    console.log('Groq:', JSON.stringify(data));
+    const text = data.choices?.[0]?.message?.content || '';
     res.status(200).json({ text });
-
   } catch (err) {
-    console.log('Catch error:', err.message);
     res.status(500).json({ error: err.message });
   }
 }
