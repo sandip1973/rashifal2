@@ -1,22 +1,35 @@
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
+  
   try {
     const { prompt } = req.body;
-    const response = await fetch(
-  `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0.8, maxOutputTokens: 1000 }
-        })
-      }
-    );
-    const data = await response.json();
+    
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${process.env.GEMINI_API_KEY}`;
+    
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ 
+          parts: [{ text: prompt }] 
+        }]
+      })
+    });
+
+    const raw = await response.text();
+    console.log('Gemini status:', response.status);
+    console.log('Gemini response:', raw);
+
+    if (!response.ok) {
+      return res.status(500).json({ error: 'Gemini error: ' + raw });
+    }
+
+    const data = JSON.parse(raw);
     const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
     res.status(200).json({ text });
+
   } catch (err) {
-    res.status(500).json({ error: 'Server error' });
+    console.log('Catch error:', err.message);
+    res.status(500).json({ error: err.message });
   }
 }
